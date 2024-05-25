@@ -18,9 +18,17 @@
 <body>
     <img src="D:/Prodemy/Javascript/images.jpeg" alt="panda">
     <div id="wrap">Belajar Axios</div>
+
+    <button onclick="getUser()"> get user</button>
+    <button onclick="addUser()"> add user</button>
+    <button onclick="updateUser()"> update user</button>
+    <button onclick="deleteUser()"> delete user</button>
+    <button onclick="config()"> update user using config</button>
+    <button onclick="getInstance()"> get user using instance</button>
         
     <script>
         // Get
+         function getUser(){    
         axios.get("http://localhost:3000/users")
             .then((response)=>{
                 console.log("ini responnya", response.data)
@@ -31,49 +39,92 @@
             .finally(()=>{
                 console.log("request selesai")
             })
+        }
 
-        // // Post
-        // function addUser(){
-        //     const newUser = {
-        //         "name": "Siregasdar",
-        //         "email": "siregar@gmail.com",
-        //     }
-        //     axios
-        //         .post("http://localhost:3000/users", newUser)
-        //         .then(({ data })=>console.log(data))
-        //         .catch((err)=>console.log(err))
-        //         .finally(()=>console.log('selesai'))
-        // }
-        // addUser()
 
-        // //Put --update
-        // function updateUser(){
-        //     const update = {
-        //         name : "Siregar1",
-        //         email : "siregar1@gmail.com"
-        //     }
+        // Post
+        function addUser(){
+            const newUser = {
+                "name": "Safaf",
+                "email": "siregar@gmail.com",
+            }
+            axios
+                .post("http://localhost:3000/users", newUser)
+                .then(({ data })=>console.log(data))
+                .catch((err)=>console.log(err))
+                .finally(()=>console.log('selesai'))
+        }
+        
 
-        //     const userId = "9d48"
+        //Put --update
+        function updateUser(){
+            const update = {
+                name : "Siregar1",
+                email : "siregar1@gmail.com"
+            }
 
-        //     axios
-        //         .put(`http://localhost:3000/users/${userId}`, update)
-        //         .then(({ data })=>console.log(data))
-        //         .catch((err)=>console.log(err))
-        //         .finally(()=>console.log('selesai'))
-        // }
-        // updateUser()
+            const userId1 = "8cec"
 
-        // //delete
-        // function deleteUser(){
-        //     const userId = "09d5"
-        //     axios
-        //         .delete(`http://localhost:3000/users/${userID}`)
-        //         .then(({ data })=>console.log(data))
-        //         .catch((err)=>console.log(err))
-        //         .finally(()=>console.log('selesai'))
-        // }
+            axios
+                .put(`http://localhost:3000/users/${userId1}`, update)
+                .then(({ data })=>console.log(data))
+                .catch((err)=>console.log(err))
+                .finally(()=>console.log('selesai'))
+        }
+        
 
-        // deleteUser()
+        //delete
+        function deleteUser(){
+            const userId = "8cec"
+            axios
+                .delete(`http://localhost:3000/users/${userId}`)
+                .then(({ data })=>console.log(data)) 
+                .catch((err)=>console.log(err))
+                .finally(()=>console.log('selesai'))
+        }
+
+        
+        //axios config
+        function config(){
+            const userId2 = "1236"
+            axios({
+            method : "PUT",
+            url : `http://localhost:3000/users/${userId2}`,
+            data :{
+                name : "iqbal al",
+                email: "asnfaskn@email.com"
+            }
+        })
+            .then(({ data })=>console.log(data))
+            .catch((err)=>console.log(err))
+            .finally(()=>console.log('selesai'))
+        }
+
+        
+        //axios instance
+        
+        function getInstance(){
+            const myInstance = axios.create({
+            baseURL : "http://localhost:3000"
+        })
+
+        myInstance
+            .get("/users")
+            .then((response)=>{
+                console.log("ini responnya", response.data)
+            })
+            .catch((err)=>{
+                console.log("ini errornya", err)
+            })
+            .finally(()=>{
+                console.log("request selesai")
+            })
+        }
+        
+        
+        
+        
+        
     </script>
 
   
