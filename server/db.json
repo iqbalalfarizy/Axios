@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "iqbal",
+      "email": "iqbal@gmail.com"
+    },
+    {
+      "id": "2",
+      "name": "al",
+      "email": "al@gmail.com"
+    },
+    {
+      "id": "3",
+      "name": "farizy",
+      "email": "farizy@gmail.com"
+    },
+    {
+      "name": "Siregar1",
+      "email": "siregar1@gmail.com",
+      "id": "9d48"
+    }
+  ]
+}
